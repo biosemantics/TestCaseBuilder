@@ -327,18 +327,61 @@ public class BuilderView {
 		output2TextArea.setText(outputText);
 	}
 
-
 	public void setGithubLoginField(String outputText) {
 		githubLoginField.setText(outputText);
 	}
 
 	public void setGithubPasswordField(String outputText) {
 		githubPasswordField.setText(outputText);
-	}	
-	
-	
+	}
+
 	public void setGithubInforSaveMsgTextArea(String outputText) {
 		githubInforSaveMsgTextArea.setText(outputText);
 	}
 
+	public void noGitHubLoginOrPasswdWhenBuildPopUpDialog() {
+		JOptionPane
+				.showMessageDialog(
+						null,
+						"Need GitHub loginname and password beferore build and preview!",
+						"Warning",
+						JOptionPane.WARNING_MESSAGE);
+						//http://docs.oracle.com/javase/7/docs/api/javax/swing/JOptionPane.html
+	}
+
+	public void noGitHubLoginOrPasswdWhenCommitPopUpDialog() {
+		JOptionPane
+				.showMessageDialog(
+						null,
+						"Need GitHub loginname and password beferore committing files!",
+						"Warning",
+						JOptionPane.WARNING_MESSAGE);
+	}
+	
+	public void noSourceFileNameFieldPopUpDialog() {
+		JOptionPane
+				.showMessageDialog(
+						null,
+						"Need Source File Name for build and preview!",
+						"Warning",
+						JOptionPane.WARNING_MESSAGE);
+	}	
+
+	public void noCorrectMarkupTextAreaPopUpDialog() {
+		JOptionPane
+				.showMessageDialog(
+						null,
+						"Need Correct Markup for build and preview!",
+						"Warning",
+						JOptionPane.WARNING_MESSAGE);
+	}
+	
+	public void noBuildAndPreviewWhenCommitPopUpDialog() {
+		JOptionPane
+				.showMessageDialog(
+						null,
+						"Need \"Build and preview\" beferore committing files!",
+						"Warning",
+						JOptionPane.WARNING_MESSAGE);
+	}	
 }
