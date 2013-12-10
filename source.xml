@@ -1,0 +1,20 @@
+<statement id="4.txtp0.txt-0">
+  	<text>Habit: dioecious palm- or fern-like shrubs with aerial or subterranean, pachycaul, cylindrical or globose stems, with few to many leaves.</text>
+  	<structure id="o129" name_original="shrubs" name="shrub">
+    	<character name="reproduction" value="dioecious" />
+    	<character name="shape" value="palm_or_fern_like" />
+  	</structure>
+  	<structure id="o130" name_original="stems" name="stem">
+    	<character name="location" value="aerial" />
+    	<character name="location" value="subterranean" />
+    	<character name="feature" value="pachycaul" />
+    	<character name="shape" value="cylindrical" />
+    	<character name="shape" value="globose" />
+  	</structure>
+  	<relation id="r33" name="with" from="o129" to="o130" negation="false" />
+  	<structure id="o131" name_original="leaves" name="leaf">
+    	<character char_type="range_value" name="count" from="few" to="many" />
+    	<character name="count" value="few" />
+    	<character name="count" value="many" />
+  	</structure>
+</statement>

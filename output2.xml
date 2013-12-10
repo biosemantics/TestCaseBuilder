@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<treatment>
+  <meta>
+    <source>4.txt from Cycad</source>
+    <test_target>compound phrases connected by ‘or’, e.g. palm- or fern-like</test_target>
+  </meta>
+  <taxon_identification />
+  <description>
+    <statement id="3.txt">
+      <text>Habit: dioecious palm- or fern-like shrubs with aerial or subterranean, pachycaul, cylindrical or globose stems, with few to many leaves.</text>
+      <structure id="o1" name_original="shrubs" name="shrub">
+        <character name="reproduction" value="dioecious" />
+        <character name="shape" value="palm_or_fern_like" />
+      </structure>
+      <structure id="o2" name_original="stems" name="stem">
+        <character name="location" value="aerial" />
+        <character name="location" value="subterranean" />
+        <character name="feature" value="pachycaul" />
+        <character name="shape" value="cylindrical" />
+        <character name="shape" value="globose" />
+      </structure>
+      <relation id="r1" name="with" from="o1" to="o2" negation="false" />
+      <structure id="o3" name_original="leaves" name="leaf">
+        <character char_type="range_value" name="count" from="few" to="many" />
+        <character name="count" value="few" />
+        <character name="count" value="many" />
+      </structure>
+    </statement>
+  </description>
+</treatment>

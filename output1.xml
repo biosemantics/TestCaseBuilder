@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<treatment>
+  <meta>
+    <source>4.txt from Cycad</source>
+    <test_target>compound phrases connected by ‘or’, e.g. palm- or fern-like</test_target>
+  </meta>
+  <taxon_identification />
+  <description>Habit: dioecious palm- or fern-like shrubs with aerial or subterranean, pachycaul, cylindrical or globose stems, with few to many leaves.</description>
+</treatment>
