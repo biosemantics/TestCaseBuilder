@@ -58,6 +58,7 @@ public class BuilderController {
 					view.setOutput1TextArea(output1);
 					view.setOutput2TextArea(output2);
 
+					
 				}
 				if (actionEvent.getSource() == view.getRefreshButton()) {
 					System.out.println("Catch this event:: Clear above.");

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,6 +18,8 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+import edu.arizona.sirls.gitClient.GitClient;
+
 public class BuilderModel {
 
 	private String output1;
@@ -24,9 +27,9 @@ public class BuilderModel {
 	private String term_category_pair;
 
 	private String githubLoginName;
-	private int maximunNumOfSourceFile = 0;
-
 	private String gitHubLoginPasswd;
+	
+	private int maximunNumOfSourceFile = 0;
 	
 	public BuilderModel() {
 
@@ -36,9 +39,13 @@ public class BuilderModel {
 			String newTestTargetField, String sourceFileNameField,
 			String correctMarkupTextArea) {
 
+		
+		
+		// Deprecated
 		// December 10, 2013 Tuesday add
 		// Read Directory "local" and its subfolder "source" and "targetoutcome"
-
+		/*
+		 * 
 		String sourceFolderName = "local/source";
 		File sourceFolder = new File(sourceFolderName);
 		
@@ -62,7 +69,52 @@ public class BuilderModel {
 				}
 			}			
 		}
-		
+		 */
+		// Deprecated
+
+		// December 10, 2013 Tuesday add
+		// Read GitHub Directory and its subfolder "source"		
+		String user = githubLoginName;
+		String password = gitHubLoginPasswd;
+		String authorName = "Test Case Builder";
+		String authorEmail = "testcasebuilder@gmail.com";
+		String committerName = "committerName";
+		String committerEmail = "committerEmail@gmail.com";
+		String repository = "https://github.com/biosemantics/testcases.git";
+
+		List<String> branches = new LinkedList<String>();
+		branches.add("master");
+		// branches.add("development");
+
+		GitClient clientA = new GitClient(repository, branches,
+				"local", user, password, authorName, authorEmail,
+				committerName, committerEmail);
+		try {
+			List<File> sourceFileList = clientA.getFiles("source", "master");
+			for (File fileInSourceFileList : sourceFileList) {
+				String fileName = fileInSourceFileList.getName();
+				System.out.println(fileName);
+
+				if (fileInSourceFileList.isFile()) {
+					String sourceFileName = fileInSourceFileList.getName();
+					if (!sourceFileName.equals(".DS_Store")) {
+						String[] sourceFileNameArray = sourceFileName.split("\\.");
+						// System.out.println("sourceFileName number:" +
+						// sourceFileNameArray[0]);
+						int localMaximunNumOfSourceFile = Integer
+								.parseInt(sourceFileNameArray[0]);
+						if (maximunNumOfSourceFile < localMaximunNumOfSourceFile) {
+							maximunNumOfSourceFile = localMaximunNumOfSourceFile;
+						}
+
+					}
+				}
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 
 		if (newTestTargetField != null && !newTestTargetField.equals("")) {
 			selectedTestCaseItem = newTestTargetField;
