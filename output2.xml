@@ -6,7 +6,7 @@
   </meta>
   <taxon_identification />
   <description>
-    <statement id="8.txt">
+    <statement id="4.txt">
       <text>Stems arborescent, to 5 m tall.</text>
       <structure clausestart="true" id="o1" name_original="stems" name="stem">
         <character name="habit" value="arborescent" />

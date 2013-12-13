@@ -24,7 +24,7 @@ public class BuilderModel {
 
 	private String output1;
 	private String output2;
-	private String term_category_pair;
+	private String term_category_pair="";
 
 	private String githubLoginName;
 	private String gitHubLoginPasswd;
