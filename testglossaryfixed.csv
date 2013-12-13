@@ -1,0 +1,43 @@
+shrubs, structure
+shrub, structure
+dioecious, reproduction
+palm_or_fern_like, shape
+stems, structure
+stem, structure
+aerial, location
+subterranean, location
+pachycaul, feature
+cylindrical, shape
+globose, shape
+leaves, structure
+leaf, structure
+few, count
+many, count
+muscles, structure
+muscle, structure
+anterior, structure
+pharynx, structure
+cuticle, structure
+capsule, structure
+nullshrubs, structure
+leaflets, structure
+leaflet, structure
+papyraceous, internal_texture
+lanceolate, shape
+acute, shape
+cuneate, shape
+apex, structure
+base, structure
+margins, structure
+margin, structure
+serrate, shape
+nullcones, structure
+cone, structure
+decumbent, habit
+ovoid, shape
+light brown, coloration
+dark beige, coloration
+apiculate, shape
+nullstems, structure
+arborescent, habit
+

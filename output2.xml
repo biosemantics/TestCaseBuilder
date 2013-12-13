@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<treatment>
+  <meta>
+    <source>CycadType2</source>
+    <test_target>toRange, e.g. to 5 m tall</test_target>
+  </meta>
+  <taxon_identification />
+  <description>
+    <statement id="8.txt">
+      <text>Stems arborescent, to 5 m tall.</text>
+      <structure clausestart="true" id="o1" name_original="stems" name="stem">
+        <character name="habit" value="arborescent" />
+        <character char_type="range_value" name="height" from="0" from_unit="m" to="5" to_unit="m" />
+      </structure>
+    </statement>
+  </description>
+</treatment>

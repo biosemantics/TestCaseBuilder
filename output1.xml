@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<treatment>
+  <meta>
+    <source>CycadType2</source>
+    <test_target>toRange, e.g. to 5 m tall</test_target>
+  </meta>
+  <taxon_identification />
+  <description>Stems arborescent, to 5 m tall.</description>
+</treatment>

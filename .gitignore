@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 /.settings
 /target
+=======
+target/
+/.settings
+>>>>>>> branch 'master' of https://github.com/biosemantics/TestCaseBuilder.git
 /.classpath
 /.project
