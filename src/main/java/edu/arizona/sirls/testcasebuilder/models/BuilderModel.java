@@ -194,10 +194,10 @@ public class BuilderModel {
 					System.out.println(structureNode.getName());
 					term_category_pair += structureNode
 							.getAttributeValue("name_original")
-							+ ", "
+							+ ","
 							+ "structure\n";
 					term_category_pair += structureNode
-							.getAttributeValue("name") + ", " + "structure\n";
+							.getAttributeValue("name") + "," + "structure\n";
 
 					List characterList = structureNode.getChildren("character");
 					for (int j = 0; j < characterList.size(); j++) {
@@ -210,7 +210,7 @@ public class BuilderModel {
 									.getAttributeValue("value");
 							System.out.println("character name : " + name);
 							System.out.println("character value : " + value);
-							term_category_pair += value + ", " + name + "\n";
+							term_category_pair += value + "," + name + "\n";
 						}
 
 					}

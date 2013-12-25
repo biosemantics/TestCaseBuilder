@@ -65,14 +65,15 @@ public class BuilderView {
 		output1TextArea.setEditable(true);
 		output1TextArea.setLineWrap(true);
 		output1TextArea.setWrapStyleWord(true);
-		// totalGUI.add(new JScrollPane(output1TextArea));
-		totalGUI.add(output1TextArea);
+		totalGUI.add(new JScrollPane(output1TextArea));
+		//totalGUI.add(output1TextArea);
 
 		output2Label = new JLabel("Output 2");
 		output2Label.setLocation(300, 200);
 		output2Label.setSize(300, 300);
 		output2Label.setHorizontalAlignment(0);
-		totalGUI.add(output2Label);
+		totalGUI.add(new JScrollPane(output2TextArea));
+		//totalGUI.add(output2Label);
 
 		output2TextArea = new JTextArea(30, 50);
 		output2TextArea.setLocation(370, 370);

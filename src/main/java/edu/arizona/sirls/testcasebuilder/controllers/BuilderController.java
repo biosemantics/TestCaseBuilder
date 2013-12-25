@@ -70,6 +70,7 @@ public class BuilderController {
 					} else {
 						view.setOutput1TextArea("");
 						view.setOutput2TextArea("");
+						view.setGithubInforSaveMsgTextArea("");
 
 						String output1 = "";
 						String output2 = "";
