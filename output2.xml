@@ -6,20 +6,20 @@
   </meta>
   <taxon_identification />
   <description>
-    <statement id="3.txt">
-      <text>Pollen cones 2-6, decumbent, cylindrical to ovoid, light brown to dark beige, 6.5-7.5 cm long, 1.8-2.5 cm in diameter, apiculate apically;</text>
-      <structure clausestart="false" id="o1" name_original="cones" name="cone" constraint="pollen">
-        <character char_type="range_value" name="count" from="2" to="6" />
-        <character name="habit_or_orientation" value="decumbent" />
-        <character char_type="range_value" name="shape" from="cylindrical" to="ovoid" />
-        <character name="shape" value="cylindrical" />
-        <character name="shape" value="ovoid" />
-        <character char_type="range_value" name="coloration" from="light brown" to="dark beige" />
-        <character name="coloration" value="light brown" />
-        <character name="coloration" value="dark beige" />
-        <character char_type="range_value" name="length" from="6.5" from_unit="cm" to="7.5" to_unit="cm" />
-        <character char_type="range_value" name="size" from="1.8" from_unit="cm" to="2.5" to_unit="cm" modifier="in diameter" />
-        <character name="shape" value="apiculate" modifier="apically" />
+    <statement id="4.txtp0.txt-0">
+      <text>Leaflets papyraceous, lanceolate, acute at apex, cuneate at base, margins serrate in upper two_thirds, 12-15 cm long, 1-2 cm wide.</text>
+      <structure id="o1" name_original="leaflets" name="leaflet">
+        <character name="internal_texture" value="papyraceous" />
+        <character name="shape" value="lanceolate" />
+        <character name="shape" value="acute" constraint="at apex" constraintid="o2" />
+        <character name="shape" value="cuneate" constraint="at base" constraintid="o3" />
+      </structure>
+      <structure id="o2" name_original="apex" name="apex" />
+      <structure id="o3" name_original="base" name="base" />
+      <structure id="o4" name_original="margins" name="margin">
+        <character name="shape" value="serrate" modifier="in upper 2/3" />
+        <character char_type="range_value" name="length" from="12" from_unit="cm" to="15" to_unit="cm" />
+        <character char_type="range_value" name="width" from="1" from_unit="cm" to="2" to_unit="cm" />
       </structure>
     </statement>
   </description>

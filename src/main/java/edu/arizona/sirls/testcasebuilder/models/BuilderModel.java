@@ -11,12 +11,17 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
+import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
+import org.jdom2.xpath.XPathExpression;
+import org.jdom2.xpath.XPathFactory;
+//import org.jdom2.xpath.jaxen.JaxenXPathFactory;
 
 import edu.arizona.sirls.gitClient.GitClient;
 
@@ -170,7 +175,8 @@ public class BuilderModel {
 				Document xmlDocument = (Document) builder.build(xmlFile);
 
 				Element rootNode = xmlDocument.getRootElement();
-
+				removeClauseStartAttribute(rootNode);
+				
 				System.out.println(rootNode.getName());
 				System.out.println(rootNode.getAttributeValue("id"));
 
@@ -180,7 +186,7 @@ public class BuilderModel {
 				List relationList = rootNode.getChildren("relation");
 				System.out.println("relationList:" + relationList.toString());
 
-				xmlDocument.getRootElement().setAttribute("id", String.valueOf((maximunNumOfSourceFile+1)) + ".txt");
+				xmlDocument.getRootElement().setAttribute("id", String.valueOf((maximunNumOfSourceFile+1)) + ".txtp0.txt-0");
 				// update statement id
 
 				int structureBaseNumeber = 1;
@@ -372,6 +378,25 @@ public class BuilderModel {
 			error += e1.toString()+" ";
 		}
 
+	}
+
+	/**
+	 * remove all occurrences of clausestart attributes
+	 * @param description
+	 */
+	@SuppressWarnings("unchecked")
+	private void removeClauseStartAttribute(Element root) {
+		try{
+			XPathFactory xpfac = XPathFactory.instance();
+			XPathExpression xp = xpfac.compile(".//structure[@clausestart]");
+			for (Object att : xp.evaluate(root)) {
+				((Element) att).removeAttribute("clausestart");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			error += e.toString()+" ";
+		}
+		
 	}
 
 	public List<String> refresh() {

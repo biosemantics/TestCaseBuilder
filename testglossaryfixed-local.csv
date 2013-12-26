@@ -1,11 +1,13 @@
-cones,structure
-cone,structure
-decumbent,habit
-decumbent,orientation
-cylindrical,shape
-ovoid,shape
- brown,coloration
-light brown,coloration
- beige,coloration
-dark beige,coloration
-apiculate,shape
+leaflets,structure
+leaflet,structure
+papyraceous,internal_texture
+lanceolate,shape
+acute,shape
+cuneate,shape
+apex,structure
+apex,structure
+base,structure
+base,structure
+margins,structure
+margin,structure
+serrate,shape
