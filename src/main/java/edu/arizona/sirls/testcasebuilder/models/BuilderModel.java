@@ -23,6 +23,7 @@ import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
 //import org.jdom2.xpath.jaxen.JaxenXPathFactory;
 
+
 import edu.arizona.sirls.gitClient.GitClient;
 
 public class BuilderModel {
@@ -338,15 +339,15 @@ public class BuilderModel {
 					ioe.printStackTrace();
 					error += ioe.toString()+" ";
 				}
-
-				System.out.println("term_category_pair:" + term_category_pair);
+				term_category_pair = term_category_pair.replaceFirst("\n$", "");
+				System.out.println("term_category_pair:" + term_category_pair+":");
 
 				System.out.println();
 				FileWriter testglossaryfixedOutFile = new FileWriter(
 						"testglossaryfixed-local.csv");
 				PrintWriter testglossaryfixedOut = new PrintWriter(
 						testglossaryfixedOutFile);
-				testglossaryfixedOut.println(term_category_pair.replaceFirst("\n$", ""));
+				testglossaryfixedOut.print(term_category_pair);
 				testglossaryfixedOut.close();
 				testglossaryfixedOutFile.close();
 
@@ -388,7 +389,7 @@ public class BuilderModel {
 	private void removeClauseStartAttribute(Element root) {
 		try{
 			XPathFactory xpfac = XPathFactory.instance();
-			XPathExpression xp = xpfac.compile(".//structure[@clausestart]");
+			XPathExpression<Object> xp = xpfac.compile(".//structure[@clausestart]");
 			for (Object att : xp.evaluate(root)) {
 				((Element) att).removeAttribute("clausestart");
 			}
