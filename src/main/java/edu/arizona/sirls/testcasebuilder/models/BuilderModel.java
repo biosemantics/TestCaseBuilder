@@ -25,6 +25,7 @@ public class BuilderModel {
 	private String output1;
 	private String output2;
 	private String term_category_pair="";
+	private String error = "";
 
 	private String githubLoginName;
 	private String gitHubLoginPasswd;
@@ -114,6 +115,7 @@ public class BuilderModel {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			error+=e.toString()+" ";
 		}		
 
 		if (newTestTargetField != null && !newTestTargetField.equals("")) {
@@ -147,9 +149,11 @@ public class BuilderModel {
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+				error += e1.toString()+" ";
 			} catch (IOException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
+				error+= e2.toString()+" ";
 			}
 
 		}
@@ -205,12 +209,26 @@ public class BuilderModel {
 						// character name and character value
 						if (characterNode.getAttributeValue("value") != null) {
 							String name = characterNode
-									.getAttributeValue("name");
+									.getAttributeValue("name").trim();
 							String value = characterNode
-									.getAttributeValue("value");
+									.getAttributeValue("value").trim();
 							System.out.println("character name : " + name);
 							System.out.println("character value : " + value);
-							term_category_pair += value + "," + name + "\n";
+							//_or_ in category name
+							if(name.indexOf("_or_")>=0 || name.indexOf("-or-")>=0){
+								String[] names = name.split("[_-]or[_-]");
+								for(String n : names){
+									if(value.indexOf(" ")>0){
+										term_category_pair += value.substring(value.lastIndexOf(" ")).trim()+","+n+"\n";
+									}									
+									term_category_pair += value+","+n+"\n";
+								}
+							}else{
+								if(value.indexOf(" ")>0){
+									term_category_pair += value.substring(value.lastIndexOf(" ")).trim()+","+name+"\n";
+								}									
+								term_category_pair += value + "," + name + "\n";
+							}
 						}
 
 					}
@@ -312,6 +330,7 @@ public class BuilderModel {
 
 				} catch (IOException ioe) {
 					ioe.printStackTrace();
+					error += ioe.toString()+" ";
 				}
 
 				System.out.println("term_category_pair:" + term_category_pair);
@@ -321,7 +340,7 @@ public class BuilderModel {
 						"testglossaryfixed-local.csv");
 				PrintWriter testglossaryfixedOut = new PrintWriter(
 						testglossaryfixedOutFile);
-				testglossaryfixedOut.println(term_category_pair);
+				testglossaryfixedOut.println(term_category_pair.replaceFirst("\n$", ""));
 				testglossaryfixedOut.close();
 				testglossaryfixedOutFile.close();
 
@@ -333,24 +352,36 @@ public class BuilderModel {
 
 			} catch (IOException io) {
 				System.out.println(io.getMessage());
+				error+=io.toString();
 			} catch (JDOMException jdomex) {
 				System.out.println(jdomex.getMessage());
+				error += jdomex.toString()+" ";
 			} catch (Exception e3) {
 				// TODO Auto-generated catch block
 				e3.printStackTrace();
+				error += e3.toString();
 			}
 
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			error += e1.toString()+" ";
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			error += e1.toString()+" ";
 		}
 
 	}
 
 	public List<String> refresh() {
+		//reset the results for a fresh run
+		this.output1 = null;
+		this.output2 = null;
+		this.term_category_pair ="";
+		this.error = "";
+		
+		//get test target list
 		List<String> testTargetList = new ArrayList<String>();
 		// testTargetList.add("NEW");
 		Scanner scanner;
@@ -394,6 +425,10 @@ public class BuilderModel {
 
 	public int getMaximunNumOfSourceFile() {
 		return maximunNumOfSourceFile;
+	}
+	
+	public String getErrors(){
+		return this.error;
 	}
 
 }

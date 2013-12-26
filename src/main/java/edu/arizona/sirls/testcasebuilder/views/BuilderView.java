@@ -3,6 +3,7 @@ package edu.arizona.sirls.testcasebuilder.views;
 import javax.swing.*;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +17,7 @@ public class BuilderView {
 
 	private String githubInforSaveMsg, githubLoginInfor, githubPasswordInfor;
 
-	private JPanel textPanel, panelForInputFields, panelForGitHub;
+	private JPanel textPanel, newTestCasePanel, panelForInputFields, panelForGitHub;
 	private JLabel titleLabel, testTargetLabel, sourceFileLabel,
 			correctMarkupLabel, output1Label, output2Label, githubLoginLabel,
 			githubPasswordLabel;
@@ -33,11 +34,14 @@ public class BuilderView {
 	public BuilderView() throws FileNotFoundException {
 		frame = new JFrame("Test Case Builder");
 
-		frame.setContentPane(createContentPane());
+		//frame.setContentPane(createContentPane());
+		frame.add(createContentPane());
 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		frame.setSize(800, 600);
+		//frame.pack();
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 
@@ -53,35 +57,56 @@ public class BuilderView {
 		titleLabel.setHorizontalAlignment(0);
 		totalGUI.add(titleLabel);
 
+		newTestCasePanel = new JPanel();
+		newTestCasePanel.setLayout(
+		new BoxLayout(newTestCasePanel,
+				BoxLayout.X_AXIS));
+		newTestCasePanel.setLocation(50, 350);
+		newTestCasePanel.setSize(600, 200);
+		newTestCasePanel.setBackground(Color.yellow);
+		totalGUI.add(newTestCasePanel);
+		
 		output1Label = new JLabel("Output 1");
-		output1Label.setLocation(0, 200);
-		output1Label.setSize(300, 300);
+		output1Label.setLocation(60, 350);
+		output1Label.setSize(100, 100);
 		output1Label.setHorizontalAlignment(0);
-		totalGUI.add(output1Label);
+		newTestCasePanel.add(output1Label);
+		//totalGUI.add(output1Label);
 
 		output1TextArea = new JTextArea(30, 50);
 		output1TextArea.setLocation(50, 370);
-		output1TextArea.setSize(300, 200);
+		output1TextArea.setSize(100, 100);
 		output1TextArea.setEditable(true);
 		output1TextArea.setLineWrap(true);
 		output1TextArea.setWrapStyleWord(true);
-		totalGUI.add(new JScrollPane(output1TextArea));
 		//totalGUI.add(output1TextArea);
+		JScrollPane scroll1 = new JScrollPane(output1TextArea);
+	    scroll1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+	    scroll1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    newTestCasePanel.add(scroll1);
+	    //totalGUI.add(scroll1);
+	    
 
 		output2Label = new JLabel("Output 2");
-		output2Label.setLocation(300, 200);
-		output2Label.setSize(300, 300);
+		output2Label.setLocation(300, 350);
+		output2Label.setSize(100, 100);
 		output2Label.setHorizontalAlignment(0);
-		totalGUI.add(new JScrollPane(output2TextArea));
+		newTestCasePanel.add(output2Label);
 		//totalGUI.add(output2Label);
 
 		output2TextArea = new JTextArea(30, 50);
-		output2TextArea.setLocation(370, 370);
-		output2TextArea.setSize(300, 200);
+		output2TextArea.setLocation(300, 370);
+		output2TextArea.setSize(100, 100);
 		output2TextArea.setEditable(true);
 		output2TextArea.setLineWrap(true);
 		output2TextArea.setWrapStyleWord(true);
-		totalGUI.add(output2TextArea);
+		//totalGUI.add(output2TextArea);
+		JScrollPane scroll2 = new JScrollPane(output2TextArea);
+	    scroll2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+	    scroll2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    newTestCasePanel.add(scroll2);
+	    //totalGUI.add(scroll2);
+
 
 		// Creation of a Panel to contain the JLabels
 		textPanel = new JPanel();
@@ -163,7 +188,7 @@ public class BuilderView {
 
 		// Source File Name Textfield
 		sourceFileNameField = new JTextField(100);
-		// sourceFileNameField.setLocation(0, 40);
+		//sourceFileNameField.setLocation(0, 40);
 		sourceFileNameField.setSize(100, 10);
 		panelForInputFields.add(sourceFileNameField);
 

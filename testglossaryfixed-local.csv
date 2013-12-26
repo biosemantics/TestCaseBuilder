@@ -1,4 +1,11 @@
-stems, structure
-stem, structure
-arborescent, habit
-
+cones,structure
+cone,structure
+decumbent,habit
+decumbent,orientation
+cylindrical,shape
+ovoid,shape
+ brown,coloration
+light brown,coloration
+ beige,coloration
+dark beige,coloration
+apiculate,shape

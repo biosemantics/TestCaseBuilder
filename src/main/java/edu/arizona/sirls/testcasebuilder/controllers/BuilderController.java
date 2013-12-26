@@ -35,6 +35,8 @@ public class BuilderController {
 				if (actionEvent.getSource() == view.getBuildButton()) {
 
 					System.out.println("Catch this event:: Build and Preview.");
+					
+					model.refresh(); //reset model
 
 					String selectedTestCaseItem = view
 							.getSelectedTestCaseItem();
@@ -81,7 +83,9 @@ public class BuilderController {
 
 						output1 = model.getOutput1();
 						output2 = model.getOutput2();
-
+						if(output1 ==null || output2==null){
+							view.setGithubInforSaveMsgTextArea(model.getErrors());
+						}
 						view.setOutput1TextArea(output1);
 						view.setOutput2TextArea(output2);
 					}
