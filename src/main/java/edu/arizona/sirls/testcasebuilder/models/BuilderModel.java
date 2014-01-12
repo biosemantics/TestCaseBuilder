@@ -229,13 +229,17 @@ public class BuilderModel {
 										term_category_pair += value.substring(value.lastIndexOf(" ")).trim()+","+n+"\n";
 									}									
 									term_category_pair += value+","+n+"\n";
+									term_category_pair += n+",character\n";
 								}
 							}else{
 								if(value.indexOf(" ")>0){
 									term_category_pair += value.substring(value.lastIndexOf(" ")).trim()+","+name+"\n";
 								}									
 								term_category_pair += value + "," + name + "\n";
+								term_category_pair += name + ",character\n";
 							}
+						}else if(characterNode.getAttribute("name")!=null){ //range_value
+							term_category_pair += characterNode.getAttributeValue("name").trim() + ",character\n";
 						}
 
 					}
@@ -339,7 +343,7 @@ public class BuilderModel {
 					ioe.printStackTrace();
 					error += ioe.toString()+" ";
 				}
-				term_category_pair = term_category_pair.replaceFirst("\n$", "");
+				
 				System.out.println("term_category_pair:" + term_category_pair+":");
 
 				System.out.println();

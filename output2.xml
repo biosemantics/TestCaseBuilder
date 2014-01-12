@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <treatment>
   <meta>
-    <source>test</source>
-    <test_target>test</test_target>
+    <source>FNAV7</source>
+    <test_target>bracketed info</test_target>
   </meta>
   <taxon_identification />
   <description>
-    <statement id="4.txtp0.txt-0">
-      <text>Leaflets papyraceous, lanceolate, acute at apex, cuneate at base, margins serrate in upper two_thirds, 12-15 cm long, 1-2 cm wide.</text>
-      <structure id="o1" name_original="leaflets" name="leaflet">
-        <character name="internal_texture" value="papyraceous" />
-        <character name="shape" value="lanceolate" />
-        <character name="shape" value="acute" constraint="at apex" constraintid="o2" />
-        <character name="shape" value="cuneate" constraint="at base" constraintid="o3" />
+    <statement id="10.txtp0.txt-0">
+      <text>Fruiting pedicels divaricate, straight, 7–28 (–35 )mm [(1 .5– )2–7 times longer than fruit ], glabrous.</text>
+      <structure id="o1" name="pedicel" constraint="fruiting">
+        <character name="arrangement" value="divaricate" />
+        <character name="course" value="straight" />
+        <character char_type="range_value" name="atypical_size" from="28" to="35" from_unit="mm" to_unit="mm" from_inclusive="false" />
+        <character char_type="range_value" name="size" from="7" from_unit="mm" to="28" to_unit="mm" />
+        <character char_type="range_value" name="atypical_size" from="1.5" to="2" to_inclusive="false" geographical_constraint="outside of North America" constraint="times longer than fruit" constraintid="o2" />
+        <character char_type="range_value" name="size" from="2" to="7" geographical_constraint="outside of North America" constraint="times longer than fruit" constraintid="o2" />
+        <character name="external_texture" value="glabrous" />
       </structure>
-      <structure id="o2" name_original="apex" name="apex" />
-      <structure id="o3" name_original="base" name="base" />
-      <structure id="o4" name_original="margins" name="margin">
-        <character name="shape" value="serrate" modifier="in upper 2/3" />
-        <character char_type="range_value" name="length" from="12" from_unit="cm" to="15" to_unit="cm" />
-        <character char_type="range_value" name="width" from="1" from_unit="cm" to="2" to_unit="cm" />
-      </structure>
+      <structure id="o2" name="fruit" geographical_constraint="outside of North America" />
     </statement>
   </description>
 </treatment>
